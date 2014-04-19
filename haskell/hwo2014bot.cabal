@@ -17,4 +17,6 @@ Executable hwo2014bot
       base >= 4 && < 5,
       network,
       aeson,
-      bytestring
+      bytestring,
+      lens,
+      mtl
