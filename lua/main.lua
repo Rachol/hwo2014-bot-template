@@ -78,7 +78,7 @@ end
 
 function NoobBot:msgloop()
    local line = self.conn:receive("*l")
-   while line ~= nil or #len > 0 do
+   while line ~= nil do
       LOGD("Got message: %s", line)
       local msg = json.decode.decode(line)
       if msg then
