@@ -1,0 +1,2 @@
+#!/bin/sh
+sbcl --noinform --disable-debugger --noprint --quit --load client.lisp "$@"

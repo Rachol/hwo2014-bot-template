@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ "$BUILD_MODE" != "offline" ]; then
+  echo "Running in online mode, and installing dependencies"
+  if [ ! -r quicklisp.lisp ]; then
+    curl -O http://beta.quicklisp.org/quicklisp.lisp
+  fi
+  sbcl --load quicklisp.lisp --script install.lisp
+fi
