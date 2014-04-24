@@ -35,19 +35,20 @@ public class Main {
 
         send(join);
 
-        while((line = reader.readLine()) != null) {
+        while ((line = reader.readLine()) != null) {
             final MsgWrapper msgFromServer = gson.fromJson(line, MsgWrapper.class);
             if (msgFromServer.msgType.equals("carPositions")) {
                 send(new Throttle(0.5));
-            } else if (msgFromServer.msgType.equals("join")) {
-                System.out.println("Joined");
-            } else if (msgFromServer.msgType.equals("gameInit")) {
-                System.out.println("Race init");
-            } else if (msgFromServer.msgType.equals("gameEnd")) {
-                System.out.println("Race end");
-            } else if (msgFromServer.msgType.equals("gameStart")) {
-                System.out.println("Race start");
             } else {
+                if (msgFromServer.msgType.equals("join")) {
+                    System.out.println("Joined");
+                } else if (msgFromServer.msgType.equals("gameInit")) {
+                    System.out.println("Race init");
+                } else if (msgFromServer.msgType.equals("gameEnd")) {
+                    System.out.println("Race end");
+                } else if (msgFromServer.msgType.equals("gameStart")) {
+                    System.out.println("Race start");
+                }
                 send(new Ping());
             }
         }
