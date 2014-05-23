@@ -11,6 +11,7 @@ puts "I'm #{bot_name} and connect to #{server_host}:#{server_port}"
 class NoobBot
   def initialize(server_host, server_port, bot_name, bot_key)
     tcp = TCPSocket.open(server_host, server_port)
+    tcp.setsockopt(Socket::IPPROTO_TCP,Socket::TCP_NODELAY,1)
     play(bot_name, bot_key, tcp)
   end
 
